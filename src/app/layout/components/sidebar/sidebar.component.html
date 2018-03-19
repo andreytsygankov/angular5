@@ -1,0 +1,35 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+    <div class="list-group">
+        <a [routerLink]="['/home']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            Home
+        </a>
+        <a [routerLink]="['/games']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            Games
+        </a>
+        <a [routerLink]="['/wallet']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            Wallet
+        </a>
+
+        <div class="header-fields">
+            <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('profile')">
+                    <span><i class="fa fa-user"></i>&nbsp; John Smith</span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'profile'">
+                    <ul class="submenu">
+                        <li>
+                            <a [routerLink]="['/settings']">
+                                <span><i class="fa fa-fw fa-gear"></i>Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/login']" (click)="onLoggedout()">
+                                <span><i class="fa fa-fw fa-power-off"></i>Sign Out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </div>
+</nav>
